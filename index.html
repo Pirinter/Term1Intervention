@@ -159,6 +159,7 @@
     <!-- JavaScript Diagnostic Data & Logic -->
     <script>
         // Diagnostic Questions Structure (6 questions x 4 goals = 24 total)
+        // Options and answer indices updated to distribute correct answers across 0, 1, 2, and 3
         const diagnosticData = [
             {
                 goalId: 1,
@@ -167,48 +168,48 @@
                     {
                         id: "g1_q1",
                         q: "Which integer values satisfy the inequality -2 < x ≤ 3?",
-                        options: ["-2, -1, 0, 1, 2, 3", "-1, 0, 1, 2, 3", "-1, 0, 1, 2", "-2, -1, 0, 1, 2"],
-                        answer: 1,
+                        options: ["-2, -1, 0, 1, 2, 3", "-1, 0, 1, 2", "-2, -1, 0, 1, 2", "-1, 0, 1, 2, 3"],
+                        answer: 3,
                         explanation: "-2 is excluded (strictly greater than >), while 3 is included (less than or equal to ≤). So integers are -1, 0, 1, 2, 3."
                     },
                     {
                         id: "g1_q2",
                         q: "On a standard number line, how are the boundary endpoints represented for the inequality -4 ≤ x < 1?",
                         options: [
-                            "Solid circle at -4, Open circle at 1",
                             "Open circle at -4, Solid circle at 1",
+                            "Solid circle at -4, Open circle at 1",
                             "Solid circles at both -4 and 1",
                             "Open circles at both -4 and 1"
                         ],
-                        answer: 0,
+                        answer: 1,
                         explanation: "≤ requires a solid (filled) circle because -4 is included. < requires an open circle because 1 is excluded."
                     },
                     {
                         id: "g1_q3",
                         q: "How many integer solutions satisfy the inequality -3.5 < n < 4.2?",
-                        options: ["7", "8", "9", "6"],
-                        answer: 1,
+                        options: ["7", "9", "8", "6"],
+                        answer: 2,
                         explanation: "The integers strictly between -3.5 and 4.2 are -3, -2, -1, 0, 1, 2, 3, and 4. Count = 8 integers."
                     },
                     {
                         id: "g1_q4",
                         q: "A student solves an inequality and writes the solution as 2 < x ≤ 7. If x must be a positive integer, what is the SMALLEST possible value for x?",
-                        options: ["2", "3", "1", "2.1"],
-                        answer: 1,
+                        options: ["3", "2", "1", "2.1"],
+                        answer: 0,
                         explanation: "Since x > 2, 2 is excluded. The smallest integer strictly greater than 2 is 3."
                     },
                     {
                         id: "g1_q5",
                         q: "Consider the compound inequality -5 < 2x + 1 ≤ 9. Which set represents all integer solutions for x?",
-                        options: ["-3, -2, -1, 0, 1, 2, 3, 4", "-2, -1, 0, 1, 2, 3, 4", "-2, -1, 0, 1, 2, 3", "-3, -2, -1, 0, 1, 2, 3"],
-                        answer: 1,
+                        options: ["-3, -2, -1, 0, 1, 2, 3, 4", "-2, -1, 0, 1, 2, 3", "-2, -1, 0, 1, 2, 3, 4", "-3, -2, -1, 0, 1, 2, 3"],
+                        answer: 2,
                         explanation: "Subtract 1: -6 < 2x ≤ 8. Divide by 2: -3 < x ≤ 4. Integer solutions: -2, -1, 0, 1, 2, 3, 4."
                     },
                     {
                         id: "g1_q6",
                         q: "If x is an integer such that -1 ≤ x < 3, what is the MAXIMUM possible value of (5 - x)?",
-                        options: ["4", "6", "2", "5"],
-                        answer: 1,
+                        options: ["4", "2", "5", "6"],
+                        answer: 3,
                         explanation: "To maximize (5 - x), we must minimize x. The minimum integer value for x is -1. Max value = 5 - (-1) = 6."
                     }
                 ]
@@ -220,8 +221,8 @@
                     {
                         id: "g2_q1",
                         q: "An item originally costing $80 is increased by 10% and then reduced by 10%. What is its final price?",
-                        options: ["$80.00", "$79.20", "$72.00", "$80.80"],
-                        answer: 1,
+                        options: ["$80.00", "$72.00", "$79.20", "$80.80"],
+                        answer: 2,
                         explanation: "$80 × 1.10 = $88. Then $88 × 0.90 = $79.20. Note: Multipliers (1.10 × 0.90 = 0.99) show a overall 1% loss."
                     },
                     {
@@ -229,25 +230,25 @@
                         q: "A store advertises: 'Take 20% off today, plus an extra 30% off at checkout!' A customer claims: 'That's a total discount of 50%!' Is the claim correct?",
                         options: [
                             "Correct, because 20% + 30% = 50%",
-                            "Incorrect, the actual total discount is 44%",
                             "Incorrect, the actual total discount is 56%",
-                            "Correct, successive discounts always add together directly"
+                            "Correct, successive discounts always add together directly",
+                            "Incorrect, the actual total discount is 44%"
                         ],
-                        answer: 1,
+                        answer: 3,
                         explanation: "Multiplier = (1 - 0.20) × (1 - 0.30) = 0.80 × 0.70 = 0.56. Paying 56% of original means a 44% discount, not 50%."
                     },
                     {
                         id: "g2_q3",
                         q: "A population increases by 15% in Year 1 and then increases by 20% in Year 2. What single overall multiplier represents this combined change?",
-                        options: ["1.35", "1.38", "1.30", "0.38"],
-                        answer: 1,
+                        options: ["1.38", "1.35", "1.30", "0.38"],
+                        answer: 0,
                         explanation: "Overall multiplier = 1.15 × 1.20 = 1.38 (which corresponds to an overall 38% increase)."
                     },
                     {
                         id: "g2_q4",
                         q: "A laptop price is decreased by 25% during a sale. By what percentage must the sale price be increased to return to the original price?",
-                        options: ["25%", "33.3%", "20%", "50%"],
-                        answer: 1,
+                        options: ["25%", "20%", "33.3%", "50%"],
+                        answer: 2,
                         explanation: "If original price is 1.0, sale price is 0.75. To return from 0.75 to 1.0: Increase required = (0.25 / 0.75) × 100 = 33.3%."
                     },
                     {
@@ -279,45 +280,45 @@
                         id: "g3_q1",
                         q: "A length is measured as 14 cm rounded to the nearest centimeter. What are the lower bound (LB) and upper bound (UB)?",
                         options: [
-                            "LB = 13.5 cm, UB = 14.5 cm",
                             "LB = 13.0 cm, UB = 15.0 cm",
                             "LB = 13.9 cm, UB = 14.1 cm",
+                            "LB = 13.5 cm, UB = 14.5 cm",
                             "LB = 13.5 cm, UB = 14.4 cm"
                         ],
-                        answer: 0,
+                        answer: 2,
                         explanation: "Half unit of 1 cm is 0.5 cm. LB = 14 - 0.5 = 13.5 cm; UB = 14 + 0.5 = 14.5 cm."
                     },
                     {
                         id: "g3_q2",
                         q: "The mass of a bag is recorded as 280 g rounded to the nearest 10 grams. Which inequality correctly shows the bounds for the true mass, m?",
                         options: [
-                            "275 ≤ m < 285",
                             "270 ≤ m ≤ 290",
                             "275 < m ≤ 285",
-                            "279.5 ≤ m < 280.5"
+                            "279.5 ≤ m < 280.5",
+                            "275 ≤ m < 285"
                         ],
-                        answer: 0,
+                        answer: 3,
                         explanation: "Half unit of 10 g is 5 g. Lower bound is 275 g (inclusive ≤), upper bound is 285 g (exclusive <)."
                     },
                     {
                         id: "g3_q3",
                         q: "A length x is written as 4.6 m correct to 1 decimal place. What is the UPPER BOUND of x?",
-                        options: ["4.65 m", "4.7 m", "4.64 m", "4.55 m"],
-                        answer: 0,
+                        options: ["4.7 m", "4.65 m", "4.64 m", "4.55 m"],
+                        answer: 1,
                         explanation: "Degree of accuracy is 0.1. Half unit = 0.05. Upper bound = 4.6 + 0.05 = 4.65 m."
                     },
                     {
                         id: "g3_q4",
                         q: "The width of a rectangle is 6 cm (nearest cm) and its length is 10 cm (nearest cm). What is the UPPER BOUND for the area of the rectangle?",
-                        options: ["60 cm²", "68.25 cm²", "65 cm²", "52.25 cm²"],
-                        answer: 1,
+                        options: ["68.25 cm²", "60 cm²", "65 cm²", "52.25 cm²"],
+                        answer: 0,
                         explanation: "Upper bound of width = 6.5 cm. Upper bound of length = 10.5 cm. Max Area = 6.5 × 10.5 = 68.25 cm²."
                     },
                     {
                         id: "g3_q5",
                         q: "A number y is reported as 3.00 to 2 decimal places. What is the LOWER BOUND for y?",
-                        options: ["2.995", "2.99", "2.95", "2.999"],
-                        answer: 0,
+                        options: ["2.99", "2.95", "2.995", "2.999"],
+                        answer: 2,
                         explanation: "Degree of accuracy is 0.01. Half unit = 0.005. Lower bound = 3.00 - 0.005 = 2.995."
                     },
                     {
@@ -325,11 +326,11 @@
                         q: "A runner completes a sprint in 12.4 seconds, rounded to 1 decimal place. Which boundary statement is TRUE?",
                         options: [
                             "The actual time could be exactly 12.45 seconds.",
-                            "The actual time must be strictly less than 12.45 seconds.",
                             "The actual time could be 12.34 seconds.",
-                            "The actual time must be greater than 12.40 seconds."
+                            "The actual time must be greater than 12.40 seconds.",
+                            "The actual time must be strictly less than 12.45 seconds."
                         ],
-                        answer: 1,
+                        answer: 3,
                         explanation: "Inequality notation is 12.35 ≤ t < 12.45. Since 12.45 is the upper bound (exclusive), the time must be strictly less than 12.45 s."
                     }
                 ]
@@ -341,48 +342,48 @@
                     {
                         id: "g4_q1",
                         q: "A circle has an area of 36π cm². What is the radius of this circle?",
-                        options: ["6 cm", "18 cm", "12 cm", "36 cm"],
-                        answer: 0,
+                        options: ["18 cm", "6 cm", "12 cm", "36 cm"],
+                        answer: 1,
                         explanation: "Area = πr² = 36π ⇒ r² = 36 ⇒ r = 6 cm."
                     },
                     {
                         id: "g4_q2",
                         q: "The circumference of a circle is 14π cm. What is its radius?",
-                        options: ["7 cm", "14 cm", "3.5 cm", "28 cm"],
-                        answer: 0,
+                        options: ["14 cm", "3.5 cm", "28 cm", "7 cm"],
+                        answer: 3,
                         explanation: "Circumference = 2πr = 14π ⇒ 2r = 14 ⇒ r = 7 cm."
                     },
                     {
                         id: "g4_q3",
                         q: "Circle A has an area of 25π cm² and Circle B has an area of 100π cm². What is the ratio of the radius of Circle A to Circle B?",
-                        options: ["1 : 4", "1 : 2", "1 : 16", "2 : 5"],
-                        answer: 1,
+                        options: ["1 : 4", "1 : 16", "1 : 2", "2 : 5"],
+                        answer: 2,
                         explanation: "Radius A = √25 = 5 cm. Radius B = √100 = 10 cm. Ratio rA : rB = 5 : 10 = 1 : 2."
                     },
                     {
                         id: "g4_q4",
                         q: "If the radius of a circle is doubled (multiplied by 2), how does its AREA change?",
                         options: [
-                            "The area doubles (× 2)",
                             "The area quadruples (× 4)",
+                            "The area doubles (× 2)",
                             "The area increases by a factor of 8 (× 8)",
                             "The area remains unchanged"
                         ],
-                        answer: 1,
+                        answer: 0,
                         explanation: "Area scales with r². If radius becomes 2r, new area = π(2r)² = 4πr², which is 4 times larger."
                     },
                     {
                         id: "g4_q5",
                         q: "Circle X has a circumference of 20 cm. Circle Y has a circumference of 60 cm. How many times larger is the radius of Circle Y compared to Circle X?",
-                        options: ["3 times larger", "9 times larger", "6 times larger", "1.5 times larger"],
-                        answer: 0,
+                        options: ["9 times larger", "3 times larger", "6 times larger", "1.5 times larger"],
+                        answer: 1,
                         explanation: "Circumference is directly proportional to radius (C = 2πr). Ratio of circumferences 60/20 = 3, so radius is also 3 times larger."
                     },
                     {
                         id: "g4_q6",
                         q: "Circle P has a radius of r. Circle Q has an area that is 9 times the area of Circle P. What is the radius of Circle Q in terms of r?",
-                        options: ["3r", "9r", "4.5r", "81r"],
-                        answer: 0,
+                        options: ["9r", "4.5r", "3r", "81r"],
+                        answer: 2,
                         explanation: "Area Q = 9 × Area P ⇒ π(r_Q)² = 9(πr²) ⇒ (r_Q)² = 9r² ⇒ r_Q = 3r."
                     }
                 ]
